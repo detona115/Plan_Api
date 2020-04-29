@@ -1,0 +1,36 @@
+version: '3.5'
+
+services: 
+  postgres_server:
+    image: postgres
+    environment: 
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: debug
+      POSTGRES_PASSWORD: 1234
+    ports: 
+      - "5432:5432"
+    volumes: 
+      - "dbdata:/var/lib/data"
+
+  adminer:
+    image: adminer
+    ports: 
+      - "8088:8080"
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on: 
+      - postgres_server
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix    
+    user: qtuser
+    environment: 
+      - DISPLAY=$DISPLAY
+    restart: on-failure
+    command: python3 main.py
+          
+volumes: 
+  dbdata:
+
