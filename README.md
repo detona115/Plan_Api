@@ -35,7 +35,7 @@ PyQt5
 
 #### Após baixar , descompactar e acessar a pasta com os arquivos
 
-N.B: Esta versão foi testada somente com ubuntu e a instalação leva uns 5 min devido ao tamanho das imagens e dos containers
+N.B: Esta versão foi testada somente com ubuntu e a instalação leva uns 7 min devido ao tamanho das imagens e dos containers
 
 - Em um terminal, execute o seguinte comando para construir as imagem e os containers   
 - Antes da execução é necessário ter as portas 5432, 8088 e 8080 desocupadas no host para que postgres e adminer possam funcionar
