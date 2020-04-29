@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -10,10 +10,10 @@ COPY *.py /code/
 
 RUN adduser --quiet --disabled-password qtuser
 
-#RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
+RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
 RUN apt update &&                  \
     apt upgrade -y &&              \
-    apt dist-upgrade -y &&         \
+    #apt dist-upgrade -y &&         \
     apt install -y                 \
         git                        \
         wget                       \
